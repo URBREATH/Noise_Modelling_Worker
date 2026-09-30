@@ -1,0 +1,18 @@
+# Example only: in Phase 5 this service joins the compose file with NoiseModelling and the worker.
+services:
+  osm-updater:
+    build: .
+    image: urbreath/osm-updater:0.1.0
+    restart: unless-stopped
+    environment:
+      OSM_UPDATE_TIME_UTC: "22:30"      # Geofabrik publishes around 21:00 CET
+      OSM_STALE_WARN_DAYS: "7"
+      OSM_STALE_CRIT_DAYS: "60"
+      OSM_REBOOTSTRAP_AFTER_DAYS: "85"
+      # OSM_ALERT_WEBHOOK_URL: "https://example.org/hooks/osm"   # receives a JSON POST
+      # OSM_ALERT_COMMAND: "/hooks/notify.sh"                     # gets OSM_ALERT_* env vars
+    volumes:
+      - osm-data:/data/osm
+
+volumes:
+  osm-data:   # also mounted read-only by noise-worker (Phase 2/4)

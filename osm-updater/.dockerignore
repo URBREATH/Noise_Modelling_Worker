@@ -1,0 +1,4 @@
+.venv/
+tests/
+rewind.py
+**/__pycache__/

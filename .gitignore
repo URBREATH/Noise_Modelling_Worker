@@ -1,0 +1,8 @@
+test-data/
+jobs/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.osm.pbf
+.vscode/

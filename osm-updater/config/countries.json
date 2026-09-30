@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "countries": {
+    "DK": {
+      "name": "Danimarca (Aarhus)",
+      "pbf_file": "denmark-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/denmark-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/denmark-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/denmark-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/denmark.poly"
+    },
+    "GR": {
+      "name": "Grecia (Atene)",
+      "pbf_file": "greece-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/greece-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/greece-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/greece-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/greece.poly"
+    },
+    "RO": {
+      "name": "Romania (Cluj-Napoca)",
+      "pbf_file": "romania-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/romania-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/romania-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/romania-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/romania.poly"
+    },
+    "FI": {
+      "name": "Finlandia (Kajaani)",
+      "pbf_file": "finland-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/finland-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/finland-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/finland-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/finland.poly"
+    },
+    "BE": {
+      "name": "Belgio (Leuven)",
+      "pbf_file": "belgium-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/belgium-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/belgium-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/belgium-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/belgium.poly"
+    },
+    "ES-MD": {
+      "name": "Spagna, Comunidad de Madrid (Madrid)",
+      "pbf_file": "madrid-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/spain/madrid-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/spain/madrid-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/spain/madrid-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/spain/madrid.poly"
+    },
+    "IT-NE": {
+      "name": "Italia Nord-Est (Parma)",
+      "pbf_file": "nord-est-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/italy/nord-est-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/italy/nord-est-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/italy/nord-est-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/italy/nord-est.poly"
+    },
+        "CZ-PL": {
+      "name": "Cechia, Plzeňský kraj (Plzeň)",
+      "pbf_file": "plzensky-kraj-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj.poly"
+    },
+    "EE": {
+      "name": "Estonia (Tallinn)",
+      "pbf_file": "estonia-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/estonia-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/estonia-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/estonia-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/estonia.poly"
+    }
+  }
+}
