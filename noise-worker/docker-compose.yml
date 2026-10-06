@@ -1,0 +1,26 @@
+# Noise worker service (API + FIFO queue + NoiseModelling).
+# Build the NoiseModelling image first: docker build -t urbreath-nm ./pipeline
+services:
+  noise-worker:
+    build: .
+    image: noise-worker:0.1.0
+    command: ["serve"]
+    restart: unless-stopped
+    ports:
+      - "${NOISE_WORKER_PORT:-8001}:8000"
+    environment:
+      EXTRACT_BUFFER_M: "200"
+      NM_TIMEOUT_S: "3600"
+      JOBS_DIR: /jobs
+    volumes:
+      - ${OSM_DATA:-osm-data}:/data/osm:ro   # OSM extracts from the osm-updater (read-only)
+      - jobs:/jobs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+
+volumes:
+  osm-data:   # filled by the osm-updater (joined in one compose file in Phase 5)
+  jobs:

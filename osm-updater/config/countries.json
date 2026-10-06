@@ -2,7 +2,7 @@
   "version": 1,
   "countries": {
     "DK": {
-      "name": "Danimarca (Aarhus)",
+      "name": "Denmark (Aarhus)",
       "pbf_file": "denmark-latest.osm.pbf",
       "download_url": "https://download.geofabrik.de/europe/denmark-latest.osm.pbf",
       "md5_url": "https://download.geofabrik.de/europe/denmark-latest.osm.pbf.md5",
@@ -10,7 +10,7 @@
       "poly_url": "https://download.geofabrik.de/europe/denmark.poly"
     },
     "GR": {
-      "name": "Grecia (Atene)",
+      "name": "Greece (Athens)",
       "pbf_file": "greece-latest.osm.pbf",
       "download_url": "https://download.geofabrik.de/europe/greece-latest.osm.pbf",
       "md5_url": "https://download.geofabrik.de/europe/greece-latest.osm.pbf.md5",
@@ -26,7 +26,7 @@
       "poly_url": "https://download.geofabrik.de/europe/romania.poly"
     },
     "FI": {
-      "name": "Finlandia (Kajaani)",
+      "name": "Finland (Kajaani)",
       "pbf_file": "finland-latest.osm.pbf",
       "download_url": "https://download.geofabrik.de/europe/finland-latest.osm.pbf",
       "md5_url": "https://download.geofabrik.de/europe/finland-latest.osm.pbf.md5",
@@ -34,7 +34,7 @@
       "poly_url": "https://download.geofabrik.de/europe/finland.poly"
     },
     "BE": {
-      "name": "Belgio (Leuven)",
+      "name": "Belgium (Leuven)",
       "pbf_file": "belgium-latest.osm.pbf",
       "download_url": "https://download.geofabrik.de/europe/belgium-latest.osm.pbf",
       "md5_url": "https://download.geofabrik.de/europe/belgium-latest.osm.pbf.md5",
@@ -42,7 +42,7 @@
       "poly_url": "https://download.geofabrik.de/europe/belgium.poly"
     },
     "ES-MD": {
-      "name": "Spagna, Comunidad de Madrid (Madrid)",
+      "name": "Spain, Community of Madrid (Madrid)",
       "pbf_file": "madrid-latest.osm.pbf",
       "download_url": "https://download.geofabrik.de/europe/spain/madrid-latest.osm.pbf",
       "md5_url": "https://download.geofabrik.de/europe/spain/madrid-latest.osm.pbf.md5",
@@ -50,7 +50,7 @@
       "poly_url": "https://download.geofabrik.de/europe/spain/madrid.poly"
     },
     "IT-NE": {
-      "name": "Italia Nord-Est (Parma)",
+      "name": "Northeast Italy (Parma)",
       "pbf_file": "nord-est-latest.osm.pbf",
       "download_url": "https://download.geofabrik.de/europe/italy/nord-est-latest.osm.pbf",
       "md5_url": "https://download.geofabrik.de/europe/italy/nord-est-latest.osm.pbf.md5",
@@ -58,7 +58,7 @@
       "poly_url": "https://download.geofabrik.de/europe/italy/nord-est.poly"
     },
         "CZ-PL": {
-      "name": "Cechia, Plzeňský kraj (Plzeň)",
+      "name": "Czech Republic, Plzeň Region (Plzeň)",
       "pbf_file": "plzensky-kraj-latest.osm.pbf",
       "download_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-latest.osm.pbf",
       "md5_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-latest.osm.pbf.md5",

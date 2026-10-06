@@ -21,6 +21,16 @@ inputs = [
         ]
 ]
 
+// Optional physical parameters for "custom" mode. Omitted = NoiseModelling default.
+// Declared as String: the worker validates them, the conversion is done in exec().
+CUSTOM_PARAMS = ['confMaxSrcDist', 'confMaxReflDist', 'confReflOrder', 'paramWallAlpha',
+                 'confDiffVertical', 'confDiffHorizontal', 'confHumidity', 'confTemperature']
+CUSTOM_PARAMS.each { key ->
+    inputs[key] = [name: key, title: key, description: 'Optional NoiseModelling parameter',
+                   min: 0, max: 1, type: String.class]
+}
+
+
 outputs = [
         result: [
                 name       : 'Result',
@@ -78,12 +88,19 @@ def exec(Connection connection, Map input) {
             [tableBuilding: 'BUILDINGS', sourcesTableName: 'ROADS', fence: fenceWkt])
     logCounts(['RECEIVERS', 'TRIANGLES'])
 
-        // Step 5: road emission + propagation (CNOSSOS-EU) with default physical parameters
-    runScript(connection, "noisemodelling/wps/NoiseModelling/Noise_level_from_traffic.groovy",
-            [tableBuilding : 'BUILDINGS',
-             tableRoads    : 'ROADS',
-             tableReceivers: 'RECEIVERS',
-             tableGroundAbs: 'GROUND'])
+        // Step 5: road emission + propagation (CNOSSOS-EU); custom physical parameters if given
+    def nlftParams = [tableBuilding : 'BUILDINGS',
+                      tableRoads    : 'ROADS',
+                      tableReceivers: 'RECEIVERS',
+                      tableGroundAbs: 'GROUND']
+    CUSTOM_PARAMS.each { key ->
+        if (input[key] != null) {
+            String value = input[key] as String
+            nlftParams[key] = key.startsWith('confDiff') ? Boolean.valueOf(value) : value
+            logger.info("Custom parameter " + key + " = " + value)
+        }
+    }
+    runScript(connection, "noisemodelling/wps/NoiseModelling/Noise_level_from_traffic.groovy", nlftParams)
 
     sql.eachRow("SELECT PERIOD, COUNT(*) AS N, ROUND(MIN(LAEQ), 1) AS MIN_DB, ROUND(MAX(LAEQ), 1) AS MAX_DB " +
             "FROM RECEIVERS_LEVEL GROUP BY PERIOD ORDER BY PERIOD") { row ->
