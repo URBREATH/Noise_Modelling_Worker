@@ -59,11 +59,11 @@
     },
         "CZ-PL": {
       "name": "Czech Republic, Plzeň Region (Plzeň)",
-      "pbf_file": "plzensky-kraj-latest.osm.pbf",
-      "download_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-latest.osm.pbf",
-      "md5_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-latest.osm.pbf.md5",
-      "updates_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj-updates/",
-      "poly_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-kraj.poly"
+      "pbf_file": "plzensky-latest.osm.pbf",
+      "download_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-latest.osm.pbf",
+      "md5_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-latest.osm.pbf.md5",
+      "updates_url": "https://download.geofabrik.de/europe/czech-republic/plzensky-updates/",
+      "poly_url": "https://download.geofabrik.de/europe/czech-republic/plzensky.poly"
     },
     "EE": {
       "name": "Estonia (Tallinn)",

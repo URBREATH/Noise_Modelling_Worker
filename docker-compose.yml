@@ -1,0 +1,40 @@
+name: noise-pipeline
+
+services:
+  osm-updater:
+    build: ./osm-updater
+    image: osm-updater:0.1.0
+    restart: unless-stopped
+    environment:
+      OSM_UPDATE_TIME_UTC: "${OSM_UPDATE_TIME_UTC:-22:30}"
+      OSM_STALE_WARN_DAYS: "${OSM_STALE_WARN_DAYS:-7}"
+      OSM_STALE_CRIT_DAYS: "${OSM_STALE_CRIT_DAYS:-60}"
+      OSM_REBOOTSTRAP_AFTER_DAYS: "${OSM_REBOOTSTRAP_AFTER_DAYS:-85}"
+    volumes:
+      - osm-data:/data/osm          # read-write: the updater owns the data
+
+  noise-worker:
+    build: ./noise-worker
+    image: noise-worker:0.1.0
+    command: serve
+    restart: unless-stopped
+    ports:
+      - "${NOISE_WORKER_PORT:-8001}:8000"
+    environment:
+      EXTRACT_BUFFER_M: "${EXTRACT_BUFFER_M:-200}"
+      NM_TIMEOUT_S: "${NM_TIMEOUT_S:-3600}"
+      JOBS_DIR: /jobs
+    volumes:
+      - osm-data:/data/osm:ro       # read-only: the worker only reads
+      - jobs:/jobs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  osm-data:
+    name: osm-data                 
+  jobs:

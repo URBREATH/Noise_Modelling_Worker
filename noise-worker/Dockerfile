@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-# Java runtime + NoiseModelling CLI (built in the urbreath-nm image, Phase 3)
+# Java runtime + NoiseModelling CLI (built in the urbreath-nm image)
 COPY --from=eclipse-temurin:11-jre /opt/java/openjdk /opt/java/openjdk
 COPY --from=urbreath-nm /opt/noisemodelling /opt/noisemodelling
 ENV JAVA_HOME=/opt/java/openjdk \
