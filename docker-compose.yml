@@ -1,4 +1,4 @@
-name: noise-pipeline
+name: noise-modelling
 
 services:
   osm-updater:
@@ -27,6 +27,9 @@ services:
     volumes:
       - osm-data:/data/osm:ro       # read-only: the worker only reads
       - jobs:/jobs
+    networks:
+      - default
+      - urbreath-shared-network
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)"]
       interval: 30s
@@ -41,4 +44,4 @@ volumes:
 
 networks: 
     urbreath-shared-network: 
-    external: true
+      external: true
