@@ -38,3 +38,7 @@ volumes:
   osm-data:
     name: osm-data                 
   jobs:
+
+networks: 
+    urbreath-shared-network: 
+    external: true

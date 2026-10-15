@@ -157,3 +157,24 @@ noise-worker/               worker API (Python, FastAPI) + extract (osmium)
 
 The two compose files inside the subfolders start one service alone and are meant for development tests only.
 Do not run them together with the root compose: they use the same port.
+
+## License
+
+This project is licensed under the **GNU Affero General Public License v3.0** (AGPL-3.0). See [LICENSE](LICENSE).
+
+In short: you may use, modify and redistribute it, but if you distribute it or make a modified version
+available to users over a network (for example as a web service), you must publish the corresponding source code
+under the same license.
+
+Third-party components keep their own licenses:
+
+- [NoiseModelling](https://github.com/Universite-Gustave-Eiffel/NoiseModelling): GPL-3.0.
+- OpenStreetMap data, downloaded from [Geofabrik](https://download.geofabrik.de/): © OpenStreetMap contributors,
+  [ODbL 1.0](https://opendatacommons.org/licenses/odbl/). Noise maps produced from it are derived works:
+  when you publish them, credit "© OpenStreetMap contributors".
+
+## Contact
+
+Maintainer: <Francesco Nudo>, <francesco.nudo@eng.it>
+
+Bug reports and questions: open an issue on this repository, or write to the address above.
