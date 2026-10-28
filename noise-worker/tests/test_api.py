@@ -36,15 +36,26 @@ def wait_all(client):
     client.app.state.queue.join()
 
 
-def test_preset_job_done_with_result(client):
+def test_preset_job_done_without_inline_result(client):  
     r = client.post("/jobs", json={"polygon": POLYGON})
     assert r.status_code == 202
     job_id = r.json()["id"]
     wait_all(client)
     body = client.get(f"/jobs/{job_id}").json()
     assert body["status"] == "done"
-    assert body["result"] == FAKE_RESULT
+    assert "result" not in body  # NEW
     assert "finished_at" in body
+
+
+def test_results_download_when_done(client):  
+    job_id = client.post("/jobs", json={"polygon": POLYGON}).json()["id"]
+    wait_all(client)
+    r = client.get(f"/jobs/{job_id}/results")
+    assert r.status_code == 200
+    assert r.headers["content-type"] == "application/geo+json"
+    assert r.headers["content-disposition"].startswith("attachment")
+    assert f'filename="result_{job_id}.geojson"' in r.headers["content-disposition"]
+    assert r.json() == FAKE_RESULT
 
 
 def test_bad_polygon_fails_as_input_error(client):
@@ -54,6 +65,14 @@ def test_bad_polygon_fails_as_input_error(client):
     assert body["status"] == "failed"
     assert body["error"]["type"] == "input"
     assert "result" not in body
+
+
+def test_results_not_available_for_failed_job(client):  
+    job_id = client.post("/jobs", json={"polygon": {"type": "Point", "coordinates": [7.4, 43.7]}}).json()["id"]
+    wait_all(client)
+    r = client.get(f"/jobs/{job_id}/results")
+    assert r.status_code == 409
+    assert "failed" in r.json()["detail"]
 
 
 def test_custom_params_reach_the_job(client):
@@ -79,6 +98,7 @@ def test_bad_requests_are_rejected_without_queueing(client, payload):
 @pytest.mark.parametrize("job_id", ["0" * 32, "not-a-job-id", "ABCDEF" * 5 + "AB"])
 def test_unknown_or_malformed_id_is_404(client, job_id):
     assert client.get(f"/jobs/{job_id}").status_code == 404
+    assert client.get(f"/jobs/{job_id}/results").status_code == 404  # NEW
 
 
 def test_interrupted_jobs_are_marked_failed(tmp_path):
